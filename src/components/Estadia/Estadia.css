@@ -1,0 +1,50 @@
+.tituloEstadia{
+text-align: center;
+}
+
+.p1{
+  max-width: 800px;
+  margin: 2rem auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #222;
+  text-align: justify;
+  padding: 1rem;
+}
+
+.p2{
+  max-width: 825px;
+  margin: 2rem auto;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #222;
+  text-align: center;
+  padding: 1rem;
+}
+
+.btnHabit{
+  background: linear-gradient(135deg, #0077b6, #00b4d8);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;  
+
+}
+
+.btnHabit:hover{
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);    
+}
+
+.btnHabit:active{
+  transform: scale(0.95);  
+}
+
+.btnContenedor{
+  display: flex;
+  justify-content: center; /* centro horizontal */
+  align-items: center;     /* centro vertical */
+}
