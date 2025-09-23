@@ -114,7 +114,7 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-  .nav { display: none; }
+  .nav { display: none !important; }
   .menu-btn { display: block; }
 }
 

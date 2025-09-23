@@ -1,7 +1,40 @@
 {
     "habitaciones": [
         {
-            
+        "id": 1,
+        "nombre": "Ocean View Eco",
+        "capacidad": "2 a 4 personas",
+        "imagen": "https://h-img1.cloudbeds.com/uploads/23258/ove_pag_y_motor_1_featured~~60903677d0bd4.jpg"
+        },
+        {
+        "id": 2,
+        "nombre": "Standard Eco",
+        "capacidad": "2 a 4 personas",
+        "imagen": "https://h-img3.cloudbeds.com/uploads/23258/ste_pag_y_motor_1_featured~~609036ef0ba22.jpeg"
+        },
+        {
+        "id": 3,
+        "nombre": "Ocean View Double",
+        "capacidad": "2 personas",
+        "imagen": "https://h-img3.cloudbeds.com/uploads/23258/ovd_pag_y_motor_2_gallery~~6090382b2da47.jpg"
+        },
+        {
+        "id": 4,
+        "nombre": "Ocean View Family",
+        "capacidad": "2 a 4 personas",
+        "imagen": "https://h-img2.cloudbeds.com/uploads/23258/ovf_pag_y_motor_featured~~60903876d1fae.jpg"
+        },
+        {
+        "id": 5,
+        "nombre": "Standard Family",
+        "capacidad": "2 a 5 personas",
+        "imagen": "https://h-img3.cloudbeds.com/uploads/23258/stf_pag_y_motor_1_featured~~609039184bbe2.jpg"
+        },
+        {
+        "id": 6,
+        "nombre": "Honey Moon Suite",
+        "capacidad": "2 personas",
+        "imagen": "https://h-img1.cloudbeds.com/uploads/23258/suite_sala3_featured~~5bf4e37a964b3.jpg"
         }
     ]
 }

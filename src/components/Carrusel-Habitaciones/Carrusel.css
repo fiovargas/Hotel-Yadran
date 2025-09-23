@@ -1,0 +1,80 @@
+.carrusel-container {
+  display: flex;
+  flex-direction: column; /* 👈 apila verticalmente */
+  align-items: center;    /* centra el carrusel y el botón */
+  margin: 2rem auto;
+  max-width: 600px;
+  width: 90%;
+}
+
+.carrusel-img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Caption más pequeño */
+.carousel-caption h3 {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.carousel-caption p {
+  font-size: 0.9rem;
+}
+
+/* Indicadores más pequeños */
+.carousel-indicators li {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Flechas más pequeñas */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Botón debajo del carrusel */
+.btnContenedor {
+  margin-top: 1rem;  /* separación con el carrusel */
+}
+
+.btnHabit {
+  background-color: #0077cc;
+  color: white;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btnHabit:hover {
+  background-color: #005fa3;
+}
+
+/* Ajustes para móviles */
+@media (max-width: 576px) {
+  .carrusel-img {
+    max-height: 150px;
+  }
+
+  .carousel-caption h3 {
+    font-size: 1rem;
+  }
+
+  .carousel-caption p {
+    font-size: 0.8rem;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 15px;
+    height: 15px;
+  }
+}

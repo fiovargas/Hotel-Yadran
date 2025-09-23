@@ -1,100 +1,64 @@
-/* export default {getTareas, postTareas, deleteTareas, patchTareas}
+export default { getHabitaciones, postHabitacion, patchHabitacion, deleteHabitacion }
 
 
-async function getTareas() { //Función para Get
-    
-    try {
-        
-        const response = await fetch('http://localhost:3001/Tareas', {
-            method: 'GET',
-            headers :{
-                'Content-Type': 'application/json'
-            }
-        })
 
-        const tareas = await response.json()
+// POST - Crear nueva habitación
+async function postHabitacion(infoHabitacion) {
+  try {
+    const response = await fetch('http://localhost:3001/habitaciones', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(infoHabitacion)
+    })
 
-        return tareas    
-        
-    } catch (error) {
+    if (!response.ok) throw new Error("Error al crear la habitación")
 
-        console.error("Error al obtener las tareas", error)
-        throw error
-    }
+    const habitacion = await response.json()
+    return habitacion
+  } catch (error) {
+    console.error("Error al crear la habitación", error)
+    throw error
+  }
 }
 
-async function postTareas(infoTarea) {
-    try {
-            
-            const response = await fetch('http://localhost:3001/Tareas', {
-                method: 'POST',
-                headers :{
-                    'Content-Type': 'application/json'
-                },
-                body:JSON.stringify(infoTarea)          
-            })
+// PATCH - Editar una habitación por id
+async function patchHabitacion(id, nuevaHabitacion) {
+  try {
+    const response = await fetch(`http://localhost:3001/habitaciones/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(nuevaHabitacion)
+    })
 
-            const tarea = await response.json()
+    if (!response.ok) throw new Error("Error al editar la habitación")
 
-            return tarea    
-            
-        } catch (error) {
-
-            console.error("Error al crear la tarea ", error)
-            throw error
-        }
+    const habitacionEditada = await response.json()
+    return habitacionEditada
+  } catch (error) {
+    console.error("Error al editar la habitación", error)
+    throw error
+  }
 }
 
-async function patchTareas(id, nuevaTarea) { //Función para put
-    
-    try {
-        console.log(id);
-        const response = await fetch(`http://localhost:3001/Tareas/${id}`,{
-            method: 'PATCH',
-            headers :{
-                'Content-Type': 'application/json'
-            },
-            body:JSON.stringify(nuevaTarea)        
-        });
+// DELETE - Eliminar una habitación por id
+async function deleteHabitacion(id) {
+  try {
+    const response = await fetch(`http://localhost:3001/habitaciones/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
 
-        if (!response.ok) {
-        throw new Error("Error al editar la tarea");
-        }
+    if (!response.ok) throw new Error("Error al eliminar la habitación")
 
-        const tareaEditada = await response.json();
-        
-        
-
-        return tareaEditada;    
-        
-    } catch (error) {
-
-        console.error("Error al editar la tarea", error)
-        throw error 
-    }
+    return true
+  } catch (error) {
+    console.error("Error al eliminar la habitación", error)
+    throw error
+  }
 }
-
-
-async function deleteTareas(id) { //Función para Delete
-    
-    try {
-        
-        const response = await fetch(`http://localhost:3001/Tareas/${id}`,{
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            },       
-        });
-
-        if (!response.ok) {
-        throw new Error("Error al eliminar la tarea");
-        }
-
-        return true;  
-        
-    } catch (error) {
-
-        console.error("Error al eliminar la tareas ", error)
-        throw error
-    }
-}  */

@@ -19,8 +19,8 @@ function Inicio() {
         <img src={bienvenida3Img} alt="Hotel Yadran"/>
       </div>
 
+      <h3 className='Titulo'>YOUR GATEWAY TO SERENITY • YOUR GATEWAY TO SERENITY •</h3>
       <div className="inicio-texto">
-       <h3 className='Titulo'>YOUR GATEWAY TO SERENITY • YOUR GATEWAY TO SERENITY •</h3>
         <p>
         Bienvenido al Hotel Yadran, donde la comodidad se
         encuentra con la tranquilidad ubicado en el corazón

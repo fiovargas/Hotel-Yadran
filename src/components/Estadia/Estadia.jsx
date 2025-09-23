@@ -18,9 +18,7 @@ function Estadia() {
           La mayoría de nuestras habitaciones se caracterizan por tener magníficas vistas al océano, a los jardines tropicales, o a alguna de nuestras áreas de piscina. 
           Amplios balcones y terrazas le invitan a disfrutar del paraíso tropical desde la privacidad de su propia habitación.</p>
       </div>
-      <div className='btnContenedor'>
-        <button className='btnHabit' onClick={() => navigate("/ReservasHabit")}>Ver nuestras habitaciones</button>
-      </div>
+
     </div>
   )
 }

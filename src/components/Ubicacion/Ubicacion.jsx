@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Galeria() {
+function Ubicacion() {
   return (
     <div>
-     
+      Ubicación
     </div>
   )
 }
 
-export default Galeria
+export default Ubicacion

@@ -45,6 +45,6 @@ text-align: center;
 
 .btnContenedor{
   display: flex;
-  justify-content: center; /* centro horizontal */
-  align-items: center;     /* centro vertical */
+  justify-content: center; 
+  align-items: center;    
 }
