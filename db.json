@@ -34,7 +34,9 @@
         "id": 6,
         "nombre": "Honey Moon Suite",
         "capacidad": "2 personas",
-        "imagen": "https://h-img1.cloudbeds.com/uploads/23258/suite_sala3_featured~~5bf4e37a964b3.jpg"
+        "imagen": "https://h-img1.cloudbeds.com/uploads/23258/suite_sala3_featured~~5bf4e37a964b3.jpg",
+        "descripcion": "666f6g7",
+        "otrasimagenes": ""
         }
     ]
 }

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ServicesHabitaciones from '../../services/ServicesHabitaciones'
 import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import SectionDivider from "../Divisiones/SectionDivider";
 import "./Carrusel.css";
 
 function Carrusel() {
@@ -50,10 +51,11 @@ function Carrusel() {
           ))}
         </Carousel>
 
-      <div className='btnContenedor'>
-        <button className='btnHabit' onClick={() => navigate("/InfoHabit")}>Ver nuestras habitaciones</button>
+        <div className='btnContenedor'>
+          <button className='btn' onClick={() => navigate("/InfoHabit")}>Ver nuestras habitaciones</button>
+        </div>
       </div>
-      </div>
+      <SectionDivider titulo="Suscripción" />
     </div>
   )
 }

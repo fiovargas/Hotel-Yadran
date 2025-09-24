@@ -4,7 +4,8 @@ import Inicio from '../components/Inicio/Inicio'
 import Estadia from '../components/Estadia/Estadia'
 import Carrusel from '../components/Carrusel-Habitaciones/Carrusel'
 import Register from '../components/Registro/Register'
-import InfoDelHotel from '../components/Mapa/InfoDelHotel'
+import Contacto from '../components/Contacto/Contacto'
+import Footer from '../components/Footer/Footer'
 
 function Home() {
   return (
@@ -14,7 +15,8 @@ function Home() {
       <Estadia/>
       <Carrusel/>
       <Register/>
-      <InfoDelHotel/>
+      <Contacto/>
+      <Footer/>
     </div>
   )
 }

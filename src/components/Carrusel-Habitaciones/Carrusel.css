@@ -43,21 +43,6 @@
   margin-top: 1rem;  /* separación con el carrusel */
 }
 
-.btnHabit {
-  background-color: #0077cc;
-  color: white;
-  padding: 12px 24px;
-  font-size: 1.2rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.btnHabit:hover {
-  background-color: #005fa3;
-}
-
 /* Ajustes para móviles */
 @media (max-width: 576px) {
   .carrusel-img {

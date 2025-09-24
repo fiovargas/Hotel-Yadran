@@ -1,10 +1,8 @@
 import React from 'react'
-import { useNavigate } from "react-router-dom";
 import "./Estadia.css";
+import SectionDivider from "../Divisiones/SectionDivider";
 
 function Estadia() {
-
-  const navigate = useNavigate();
 
   return (
     <div>
@@ -18,7 +16,7 @@ function Estadia() {
           La mayoría de nuestras habitaciones se caracterizan por tener magníficas vistas al océano, a los jardines tropicales, o a alguna de nuestras áreas de piscina. 
           Amplios balcones y terrazas le invitan a disfrutar del paraíso tropical desde la privacidad de su propia habitación.</p>
       </div>
-
+      <SectionDivider titulo="Habitaciones" />
     </div>
   )
 }

@@ -1,0 +1,34 @@
+.footer {
+  background: linear-gradient(to right, #4387cf, #027ca5);
+  color: #fff;                     /* texto blanco */
+  padding: 1rem 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  max-width: 900px;
+  line-height: 1.8;
+}
+
+.footer-title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.footer a {
+  color: #ffffff;                  /* color verde para links */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: #000000;                  /* verde WhatsApp al hover */
+}
+
+.footer-bottom {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #ccc;
+  text-align: center;
+}

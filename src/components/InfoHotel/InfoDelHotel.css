@@ -1,0 +1,25 @@
+body{
+  margin: 0;
+  padding: 0;
+  background-image: url("https://ponderosacostarica.com/wp-content/uploads/2025/08/El-Faro-de-Puntarenas-Guardian-de-la-Historia.webp");
+  background-size: cover;        /* hace que la imagen cubra toda la pantalla */
+  background-position: center;   /* centra la imagen */
+  background-repeat: no-repeat;  /* evita que se repita */
+  height: 100vh;                 /* asegura que ocupe la altura completa */
+  font-family: Arial, sans-serif;
+}
+.map {
+  max-width: 600px;   /* tamaño máximo del mapa */
+  height: 325px;      /* alto fijo */
+  margin: 2rem auto;  /* centrado con espacio arriba y abajo */
+  border-radius: 12px; /* bordes redondeados */
+  overflow: hidden;   /* evita que sobresalga */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* sombra elegante */
+}
+
+.map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0; /* quita el borde */
+  border-radius: 12px; /* mantiene bordes redondeados */
+}

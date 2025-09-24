@@ -54,9 +54,7 @@ function Header() {
                     <span onClick={() => handleNavigate("/")}>Inicio</span>
                     <span onClick={() => handleNavigate("/ReservasHabit")}>Reservaciones</span>
                     <span onClick={() => handleNavigate("/InfoHabit")}>Habitaciones</span>
-                    <span onClick={() => handleNavigate("/Contacto")}>Contacto</span>
-                    <span onClick={() => handleNavigate("/Ubicacion")}>Ubicación</span>
-
+                    <span onClick={() => handleNavigate("/InfoDelHotel")}>Contacto y Ubicación</span>
                 </nav>
 
                 {/* Botón menú móvil */}
@@ -72,8 +70,7 @@ function Header() {
                 <span onClick={() => { handleNavigate("/"); setMenuOpen(false); }}>Inicio</span>
                 <span onClick={() => { handleNavigate("/ReservasHabit"); setMenuOpen(false); }}>Reservaciones</span>
                 <span onClick={() => { handleNavigate("/InfoHabit"); setMenuOpen(false); }}>Habitaciones</span>
-                <span onClick={() => { handleNavigate("/contactoUbi"); setMenuOpen(false); }}>Contacto</span>
-                <span onClick={() => { handleNavigate("/Ubicacion"); setMenuOpen(false); }}>Ubicación</span>
+                <span onClick={() => { handleNavigate("/InfoDelHotel"); setMenuOpen(false); }}>Contacto y Ubicación</span>
 
             </div>
 

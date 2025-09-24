@@ -1,0 +1,23 @@
+.section-divider {
+  display: flex;
+  font-size: 30px;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.section-divider .line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(to right, #0077cc, #005fa3); /* degradado azul */
+  border: none;
+}
+
+.section-divider .divider-title {
+  margin: 0 3rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #0077cc;
+  white-space: nowrap;
+}

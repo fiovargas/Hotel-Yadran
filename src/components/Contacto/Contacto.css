@@ -1,0 +1,210 @@
+.contacto-container {
+  max-width: 500px;
+  margin: 3rem auto;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* apilar verticalmente */
+  align-items: center;    /* centrar horizontalmente */
+  gap: 1.5rem;            /* espacio entre los elementos */
+}
+
+/* Botón WhatsApp */
+.btnWhatsapp {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  font-size: 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+.btnWhatsapp:hover {
+  transform: scale(1.05);
+}
+
+.tituloContac{
+  font-size: 25px;
+}
+
+.contacto-buttons {
+  display: flex;
+  justify-content: space-between; /* extremos */
+  
+  width: 200%;
+  max-width: 1000px; /* aumenta separación */
+  
+  padding: 0 1rem;   /* margen interno para que no quede pegado al borde */
+}
+
+/* Botón modal */
+.btnModal {
+  background: linear-gradient(to right, #286eb8, #10a7da);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 25px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.btnModal:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive: en pantallas pequeñas se apilan */
+@media (max-width: 768px) {
+  .contacto-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Animación de fade in */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Contenido del modal */
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 450px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: slideDown 0.3s ease;
+}
+
+/* Animación modal */
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Botón de cerrar */
+.modal-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Título modal */
+.modal-title {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #007bff;
+}
+
+/* Formulario dentro del modal */
+.contact-form label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Checkbox */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.8rem 0;
+  font-size: 0.85rem;
+  color: #555;
+}
+.checkbox-container input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* Enviar botón */
+.submit-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  transition: transform 0.2s ease;
+}
+
+.submit-btn:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: scale(1.03);
+}
+
+
+.map-container {
+  width: 100%;              /* ancho completo */
+  max-width: 1000px;        /* más grande en pantallas grandes */
+  margin: 2rem auto;        /* centrado y separación */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.map-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 500px;            /* altura más grande */
+  border: 0;
+  display: block;
+}
+
+/* Para móviles: ajusta altura automáticamente */
+@media (max-width: 768px) {
+  .map-container iframe {
+    height: 400px;
+  }
+}
