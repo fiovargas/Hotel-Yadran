@@ -3,6 +3,48 @@
   color: #fff;                     /* texto blanco */
   padding: 1rem 20px;
   font-family: Arial, sans-serif;
+}.footer {
+  background-color: #f5f5f5;
+  padding: 2rem;
+  text-align: left;
+}
+
+.footer-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.footer-title {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Contenedor que alinea el texto a la izquierda y los logos a la derecha */
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Para que en pantallas pequeñas se acomode en columnas */
+  gap: 50%;
+}
+
+.LogosRedes {
+  display: flex;
+  gap: 1rem;
+}
+
+.LogosRedes img {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #555;
 }
 
 .footer-container {

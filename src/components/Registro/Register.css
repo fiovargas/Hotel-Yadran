@@ -27,7 +27,7 @@
 }
 
 /* Input */
-input[type="email"] {
+#email {
   width: 100%;
   padding: 12px 14px;
   margin-bottom: 18px;
@@ -38,7 +38,7 @@ input[type="email"] {
   transition: border 0.3s, box-shadow 0.3s;
 }
 
-input[type="email"]:focus {
+#email:focus {
   border-color: #0077ff;
   box-shadow: 0 0 5px rgba(0, 119, 255, 0.4);
 }

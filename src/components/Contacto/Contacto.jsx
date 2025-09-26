@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import LogoWhats from "../../assets/LogoWhatsapp.png";
+import LogoContactanos from "../../assets/LogoContactanos.png";
 import "./Contacto.css";
 
 function Contacto() {
@@ -19,9 +21,14 @@ function Contacto() {
 
         <div className="contacto-buttons">
       
-          <a href="https://wa.me/50683607791" target="_blank" rel="noopener noreferrer" className="btnWhatsapp"> Envíanos un mensaje </a>
+          <a 
+            href="https://wa.me/50683607791" target="_blank"  rel="noopener noreferrer" className="btnWhatsapp">
+            <img src={LogoWhats} alt="WhatsApp" className="whatsapp-img"/>
+          </a>
           
-          <button className="btnModal" onClick={openModal}>Comunícate con nosotros</button>
+          <button className="btnContactanos" onClick={openModal}>
+            <img className="contacto-img" src={LogoContactanos} alt="Contactanos"/>
+          </button>
         </div>
 
         {isOpen && (

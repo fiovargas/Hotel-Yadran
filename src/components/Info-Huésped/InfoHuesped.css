@@ -1,0 +1,169 @@
+/* Contenedor principal */
+.info-container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+/* Título principal */
+.info-container h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #0077cc;
+}
+
+/* Checkbox "Reservo en nombre de otra persona" */
+.quienReserva {
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #444;
+}
+
+/* Secciones de inputs */
+.detallesReserva,
+.detallesHuesped {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+}
+
+/* Subtítulos de secciones */
+.detallesReserva h3,
+.detallesHuesped h3 {
+  margin-bottom: 1rem;
+  color: #0077cc;
+}
+
+/* Selector de país + número */
+.telefono-inputs {
+/*   display: flex; */
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.pais-select {
+  flex: 1;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  height: 40px;
+}
+
+/* Inputs */
+.info-container input {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Input focus */
+.info-container input:focus {
+  border-color: #0077cc;
+  box-shadow: 0 0 5px rgba(0, 119, 204, 0.3);
+  outline: none;
+}
+
+/* Botón continuar */
+.btn-container {
+  display: flex;
+  justify-content: flex-end; /* mueve el botón a la derecha */
+  margin-top: 20px;          /* espacio arriba del botón */
+}
+
+.btn-continuar {
+  width: 25%;
+  padding: 0.9rem;
+  background: linear-gradient(to right, #286eb8, #10a7da);  background: linear-gradient(to right, #286eb8, #10a7da);
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-continuar:hover {
+  background-color: #005fa3;
+  transform: scale(1.02);
+}
+
+/* Checkbox estilizado */
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #0077cc; /* cambia color del check */
+}
+
+/* Responsive: en pantallas pequeñas */
+@media (max-width: 768px) {
+  .info-container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .detallesReserva,
+  .detallesHuesped {
+    padding: 0.8rem;
+  }
+
+  .btn-continuar {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+}
+
+.hora-llegada {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.hora-llegada label {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.hora-select {
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+  width: 150px;
+}
+
+.comentarios {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.comentarios label {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.comentarios-input {
+  width: 100%;
+  min-height: 100px; /* altura inicial */
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+  resize: vertical; /* permite al usuario cambiar la altura */
+}

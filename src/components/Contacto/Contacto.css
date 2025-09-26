@@ -10,19 +10,37 @@
 }
 
 /* Botón WhatsApp */
-.btnWhatsapp {
-  background: linear-gradient(135deg, #25d366, #128c7e);
-  color: white;
-  padding: 12px 24px;
-  border: none;
-  font-size: 25px;
-  border-radius: 8px;
+.whatsapp-img {
+  width: 120px;   /* ajusta el tamaño */
+  height: 120px;
   cursor: pointer;
-  text-decoration: none;
   transition: transform 0.2s ease;
 }
-.btnWhatsapp:hover {
-  transform: scale(1.05);
+
+.whatsapp-img:hover {
+  transform: scale(1.1); /* efecto al pasar el mouse */
+}
+
+.btnContactanos {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ahora sí, el tamaño lo controla la clase en la IMG */
+.contacto-img {
+  width: 320px;   /* ajusta al mismo tamaño que quieras */
+  height: 100px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.contacto-img:hover {
+  transform: scale(1.1);
 }
 
 .tituloContac{
