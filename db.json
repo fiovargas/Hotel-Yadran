@@ -1,37 +1,37 @@
 {
   "habitaciones": [
     {
-      "id": 1,
+      "id": "1",
       "nombre": "Ocean View Eco",
       "capacidad": "2 a 4 personas",
       "imagen": "https://h-img1.cloudbeds.com/uploads/23258/ove_pag_y_motor_1_featured~~60903677d0bd4.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "nombre": "Standard Eco",
       "capacidad": "2 a 4 personas",
       "imagen": "https://h-img3.cloudbeds.com/uploads/23258/ste_pag_y_motor_1_featured~~609036ef0ba22.jpeg"
     },
     {
-      "id": 3,
+      "id": "3",
       "nombre": "Ocean View Double",
       "capacidad": "2 personas",
       "imagen": "https://h-img3.cloudbeds.com/uploads/23258/ovd_pag_y_motor_2_gallery~~6090382b2da47.jpg"
     },
     {
-      "id": 4,
+      "id": "4",
       "nombre": "Ocean View Family",
       "capacidad": "2 a 4 personas",
       "imagen": "https://h-img2.cloudbeds.com/uploads/23258/ovf_pag_y_motor_featured~~60903876d1fae.jpg"
     },
     {
-      "id": 5,
+      "id": "5",
       "nombre": "Standard Family",
       "capacidad": "2 a 5 personas",
       "imagen": "https://h-img3.cloudbeds.com/uploads/23258/stf_pag_y_motor_1_featured~~609039184bbe2.jpg"
     },
     {
-      "id": 6,
+      "id": "6",
       "nombre": "Honey Moon Suite",
       "capacidad": "2 personas",
       "imagen": "https://h-img1.cloudbeds.com/uploads/23258/suite_sala3_featured~~5bf4e37a964b3.jpg",
@@ -53,22 +53,6 @@
       "comentarios": "676898675467896578657865467"
     },
     {
-      "id": "8ae2",
-      "reserva": {
-        "reservaNombre": "carlos",
-        "reservaApellido": "rojas",
-        "reservaEmail": "car123@gmail.com"
-      },
-      "huesped": {
-        "nombre": "fio",
-        "apellido": "vargas",
-        "email": "fiovargasp31@gmail.com",
-        "numero": "+506123456789"
-      },
-      "horaLlegada": "02:30",
-      "comentarios": "sdfghjmnbvcfghjm,"
-    },
-    {
       "id": "4d5e",
       "reservaOtraPersona": {
         "reservaNombre": "carlos",
@@ -83,6 +67,16 @@
       },
       "horaLlegada": "06:30",
       "comentarios": "qswdfgfdcvb"
+    }
+  ],
+  "UsuariosRegistro": [
+    {
+      "id": "bfe8",
+      "email": "fvargas2001fwd@gmail.com"
+    },
+    {
+      "id": "d562",
+      "email": "fvargas20fwd@gmail.com"
     }
   ]
 }

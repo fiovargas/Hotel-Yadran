@@ -1,0 +1,120 @@
+/* Contenedor principal */
+.container {
+  max-width: 550px;
+  margin: 0 auto;
+  padding: 30px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Texto inicial */
+.texto {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.TituloPago {
+  text-align: center;
+  font-size: 30px;
+  color: #333;
+  margin: 0;
+}
+
+.texto p {
+  margin: 0;
+  font-size: 20px;
+  color: #555;
+}
+
+/* Logos de tarjetas - vertical */
+.tarjetas {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.tarjetas img {
+  width: 60px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Formulario */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formulario label {
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.formulario input[type="text"],
+.formulario select {
+  padding: 8px;
+  font-size: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Fecha de vencimiento - vertical */
+.vencimiento {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.Venci{
+    font-size: 25px
+}
+
+.vencimiento select {
+  width: 17%;
+}
+
+/* Checkboxes */
+.checkboxes2{
+    font-size: 15px;
+}
+.checkboxes label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Botón */
+.boton-reservar {
+  padding: 12px;
+  font-size: 25px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 50%;
+}
+
+.boton-reservar:hover {
+  background-color: #0056b3;
+}
+
+
+/* Responsive: todo ya está vertical, ajustes menores */
+@media (max-width: 600px) {
+  .tarjetas img {
+    width: 50px;
+  }
+}

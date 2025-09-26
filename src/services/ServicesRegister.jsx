@@ -4,7 +4,7 @@ async function getUsers() {
     
     try {
         
-        const response = await fetch('http://localhost:3001/Usuarios', {
+        const response = await fetch('http://localhost:3001/UsuariosRegistro', {
             method: 'GET',
             headers :{
                 'Content-Type': 'application/json'
@@ -17,7 +17,7 @@ async function getUsers() {
         
     } catch (error) {
 
-        console.error("Existe un error al obtener los usuarios", error)
+        console.error("Existe un error al obtener los usuarios registrados", error)
         throw error
         
     }
@@ -26,7 +26,7 @@ async function getUsers() {
 async function postUsers(usuario) {
     try {
             
-        const response = await fetch('http://localhost:3001/Usuarios', {
+        const response = await fetch('http://localhost:3001/UsuariosRegistro', {
             method: 'POST',
             headers :{
                 'Content-Type': 'application/json'
@@ -35,7 +35,7 @@ async function postUsers(usuario) {
         });
 
         if (!response.ok){
-            throw new Error("Error al crear los usuarios");
+            throw new Error("Error al crear los usuarios registrados");
         }
 
         const users = await response.json();
@@ -43,7 +43,7 @@ async function postUsers(usuario) {
         
     } catch (error) {
 
-        console.error("Existe un error al crear los usuarios", error)
+        console.error("Existe un error al crear los usuarios registrados", error)
         throw error
     };
 };

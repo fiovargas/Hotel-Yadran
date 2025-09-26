@@ -29,7 +29,7 @@ function Carrusel() {
   }, []);
 
     if (loading) return <p>Cargando habitaciones...</p>;
-  if (!habitaciones.length) return <p>No hay habitaciones disponibles.</p>;
+    if (!habitaciones.length) return <p>No hay habitaciones disponibles.</p>;
   
   return (
     <div>

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'
 import ServicesRegister from '../../services/ServicesRegister'
 import { toast } from 'react-toastify'
 import SectionDivider from "../Divisiones/SectionDivider";
@@ -7,29 +6,30 @@ import './Register.css'
 
 function Register() {
 
-  const navegar = useNavigate()
-
   const [email, setEmail] = useState("")
 
-    const cargarDatos = async () => {
+  // --- Expresión regular básica para correos ---
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!email) {
-      toast.error("No puedes dejar espacios vacíos")
-      return
+  const cargarDatos = async () => {
+    const correo = email.trim();
+
+    if (!correo) {
+      toast.error("No puedes dejar espacios vacíos");
+      return;
     }
 
-
-    if (!email.includes("@") || !email.includes(".")) {
-      toast.error("El correo debe contener '@' y '.'")
-      return
+    if (!emailRegex.test(correo)) {
+      toast.error("Por favor ingresa un correo válido");
+      return;
     }
 
     try {
 
-      const usuariosActuales = await ServicesRegister.getUsers()
+      const usuariosActuales = await ServicesRegister.getUsers();
 
       const emailExistente = usuariosActuales.find(
-        (user) => user.email.toLowerCase() === email.toLowerCase()
+        (user) => (user.email || "").toLowerCase() === correo.toLowerCase()
       )
 
       if (emailExistente) {
@@ -37,12 +37,15 @@ function Register() {
         return
       }
 
-      const nuevoUsuario = { email }
-      await ServicesRegister.postUsers(nuevoUsuario)
+      const nuevoUsuario = {    
+        email: correo 
+      };
+      const creado = await ServicesRegister.postUsers(nuevoUsuario)
 
       toast.success("Registro guardado con éxito")
       setEmail("")
-      navegar("/Login")
+      console.log("Usuario creado", creado);
+      
 
     } catch (error) {
       toast.error("Error al registrar el usuario")

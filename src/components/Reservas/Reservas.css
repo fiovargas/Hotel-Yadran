@@ -1,0 +1,218 @@
+.container {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #333;
+}
+
+/* --- Barra superior --- */
+.booking-bar-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.booking-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f4f6fb;
+  padding: 16px 50px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.booking-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #d3d3d3;
+  cursor: pointer;
+  min-width: 150px;
+  transition: 0.2s;
+}
+
+.booking-item:hover {
+  border-color: #0077ff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.booking-item.active {
+  border: 2px solid #0077ff;
+  background: #eef6ff;
+}
+
+.booking-item select,
+.booking-item input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  padding: 4px 10px;
+}
+
+.arrow {
+  font-size: 18px;
+  color: #666;
+}
+
+.search-button {
+  background: #0077ff;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.search-button:hover {
+  background: #005bcc;
+}
+
+/* --- Calendario --- */
+.calendar-panel {
+  width: 100%;
+  margin-top: 20px;
+  background: #fff;
+  padding: 25px 50px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centra todo horizontalmente */
+  gap: 40px; /* espacio entre los botones y los meses */
+  margin-bottom: 15px;
+}
+
+.month-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 10px;
+  text-align: center;
+}
+
+.nav-button {
+  background: #eee;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.calendar-grid {
+  display: flex;
+  gap: 40px; /* separación entre meses */
+  justify-content: center;
+  flex-wrap: wrap; /* para móviles, meses uno debajo del otro */
+}
+
+.calendar-month {
+  display: flex;
+  flex-direction: column;
+  min-width: 280px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.month-header-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.month-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+/* --- Celdas del calendario --- */
+.day-cell {
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  text-align: center;
+  padding: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.day-cell:hover {
+  background: #e8f0ff;
+  border-color: #0077ff;
+  transform: translateY(-2px);
+}
+
+.day-cell.muted {
+  background: #f0f0f0;
+  color: #bbb;
+}
+
+.day-cell.has-price {
+  font-weight: 600;
+}
+
+.day-cell.check-in {
+  background: #d1f5d3;
+  border: 2px solid #2ecc71;
+}
+
+.day-cell.check-out {
+  background: #fcdada;
+  border: 2px solid #e74c3c;
+}
+
+.day-cell.in-range {
+  background: #d6eaf8;
+}
+
+.date {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.price {
+  font-size: 12px;
+  margin-top: 4px;
+  color: #555;
+}
+
+.price.highlight-price {
+  color: #e67e22;
+  font-weight: 600;
+}
+
+/* --- Responsive --- */
+@media (max-width: 750px) {
+  .calendar-grid {
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 20px;
+  }
+  .booking-bar {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .booking-item {
+    min-width: 120px;
+    flex: 1;
+  }
+}
