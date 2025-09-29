@@ -3,40 +3,82 @@
     {
       "id": "1",
       "nombre": "Ocean View Eco",
+      "descripcion": "Capacidad de 2 a 4 personas, cuenta con 2 Camas Matrimoniales, espectacular Vista al Mar y al Golfo de Nicoya.",
+      "servicios": "Aire Acondicionado, 🛜​ Wi-Fi, 📺​ 32” LED TV por cable, Baño Privado, 🚿​ Agua Caliente, Caja de Seguridad.",
       "capacidad": "2 a 4 personas",
-      "imagen": "https://h-img1.cloudbeds.com/uploads/23258/ove_pag_y_motor_1_featured~~60903677d0bd4.jpg"
+      "imagen": "https://h-img1.cloudbeds.com/uploads/23258/ove_pag_y_motor_1_featured~~60903677d0bd4.jpg",
+      "otrasImg": [
+        "https://h-img3.cloudbeds.com/uploads/23258/ove_pag_y_motor_1_featured~~60903677d0bd4.jpg",
+        "https://h-img3.cloudbeds.com/uploads/23258/ocean_view_economic_3_gallery~~5badb92606863.jpg"
+      ]
     },
     {
       "id": "2",
       "nombre": "Standard Eco",
+      "descripcion": "Capacidad de 2 a 4 personas, cuenta con 1 Cama King y 1 Cama Matrimonial.",
+      "servicios": "Aire Acondicionado, 🛜​ Wi-Fi, 📺​ 32” LED TV por cable, Baño Privado, 🚿​ Agua Caliente, Caja de Seguridad.",
       "capacidad": "2 a 4 personas",
-      "imagen": "https://h-img3.cloudbeds.com/uploads/23258/ste_pag_y_motor_1_featured~~609036ef0ba22.jpeg"
+      "imagen": "https://h-img3.cloudbeds.com/uploads/23258/ste_pag_y_motor_1_featured~~609036ef0ba22.jpeg",
+      "otrasImg": [
+        "https://h-img3.cloudbeds.com/uploads/23258/ste_pag_y_motor_1_featured~~609036ef0ba22.jpeg",
+        "https://h-img2.cloudbeds.com/uploads/23258/_mg_5935_gallery~~6090371a2aa5a.jpg"
+      ]
     },
     {
       "id": "3",
       "nombre": "Ocean View Double",
+      "descripcion": "Especial para 2 personas, cuenta con 1 Cama King Size, están ubicadas en la segunda planta del Hotel, por lo que poseen una excelente Vista al Mar y a todo el Golfo de Nicoya.",
+      "servicios": "Mini Bar, 🛜​ Wi-Fi Aire Acondicionado, 📺​ 32” LED TV por cable, Baño Privado, 🚿​ Agua Caliente, Caja de Seguridad.",
       "capacidad": "2 personas",
-      "imagen": "https://h-img3.cloudbeds.com/uploads/23258/ovd_pag_y_motor_2_gallery~~6090382b2da47.jpg"
+      "imagen": "https://h-img3.cloudbeds.com/uploads/23258/ovd_pag_y_motor_2_gallery~~6090382b2da47.jpg",
+      "otrasImg": [
+        "https://h-img3.cloudbeds.com/uploads/23258/ovd_pag_motor_1_featured~~6090377827d97.jpg",
+        "https://h-img1.cloudbeds.com/uploads/23258/ovd_balcon_gallery~~5bf4e66c3de12.jpg",
+        "https://h-img3.cloudbeds.com/uploads/23258/ocean_view_double3_gallery~~5bae88c98122a.jpg",
+        "https://h-img1.cloudbeds.com/uploads/23258/ovd_pag_y_motor_2_gallery~~6090382b2da47.jpg"
+      ]
     },
     {
       "id": "4",
       "nombre": "Ocean View Family",
+      "descripcion": "Capacidad de 2 a 4 personas, cuenta con 2 Camas Matrimoniales, con Vista al Mar y al Golfo de Nicoya, se encuentran ubicadas cerca de nuestras 2 piscinas (adultos y niños).",
+      "servicios": "Aire Acondicionado, 🛜​ Wi-Fi, 📺​ 32” LED TV por cable, Baño Privado, 🚿​ Agua Caliente, Caja de Seguridad.",
       "capacidad": "2 a 4 personas",
-      "imagen": "https://h-img2.cloudbeds.com/uploads/23258/ovf_pag_y_motor_featured~~60903876d1fae.jpg"
+      "imagen": "https://h-img2.cloudbeds.com/uploads/23258/ovf_pag_y_motor_featured~~60903876d1fae.jpg",
+      "otrasImg": [
+        "https://h-img2.cloudbeds.com/uploads/23258/ovf_pag_y_motor_featured~~60903876d1fae.jpg",
+        "https://h-img1.cloudbeds.com/uploads/23258/ocean_view_family2_gallery~~5bae902c77b05.jpg",
+        "https://h-img3.cloudbeds.com/uploads/23258/ovf_pag_y_motor_2_gallery~~609038a184eef.jpeg"
+      ]
     },
     {
       "id": "5",
       "nombre": "Standard Family",
+      "descripcion": "Capacidad de 2 a 5 personas, ideal para familias con 2 Camas Matrimoniales y 1 Cama Individual.",
+      "servicios": "Aire Acondicionado, 🛜​ Wi-Fi, 📺​ 32” LED TV por cable, Baño privado, 🚿​ Agua Caliente, Caja de Seguridad.",
       "capacidad": "2 a 5 personas",
-      "imagen": "https://h-img3.cloudbeds.com/uploads/23258/stf_pag_y_motor_1_featured~~609039184bbe2.jpg"
+      "imagen": "https://h-img3.cloudbeds.com/uploads/23258/stf_pag_y_motor_1_featured~~609039184bbe2.jpg",
+      "otrasImg": [
+        "https://h-img3.cloudbeds.com/uploads/23258/stf_pag_y_motor_1_featured~~609039184bbe2.jpg",
+        "https://h-img1.cloudbeds.com/uploads/23258/stf_pag_y_motor_2_gallery~~60903919320a2.jpg"
+      ]
     },
     {
       "id": "6",
       "nombre": "Honey Moon Suite",
+      "descripcion": "Especial para 2 personas, cuenta con 1 Cama King Size, está ubicada en la segunda planta de nuestro Hotel, cuenta con un Amplio Balcón que tiene una Espectacular Vista al Mar y a todo el Golfo de Nicoya, cuenta con un dormitorio principal.",
+      "servicios": "Aire Acondicionado, 🛜 Wi-Fi, 📺​ 40” LED TV por cable, 🛁​ Baño Privado con Jacuzzi, 🚿​ Agua Caliente, Secador de Cabello, Caja de Seguridad. Además del dormitorio, cuenta con una Sala de Estar Amueblada con Aire Acondicionado, 32” LED TV por cable, Coffee Maker, MiniBar.",
       "capacidad": "2 personas",
       "imagen": "https://h-img1.cloudbeds.com/uploads/23258/suite_sala3_featured~~5bf4e37a964b3.jpg",
-      "descripcion": "666f6g7",
-      "otrasimagenes": ""
+      "otrasImg": [
+        "https://h-img1.cloudbeds.com/uploads/23258/suite_sala3_featured~~5bf4e37a964b3.jpg",
+        "https://h-img2.cloudbeds.com/uploads/23258/suite_cuarto3_gallery~~5bf4e3cb000be.jpg",
+        "https://h-img1.cloudbeds.com/uploads/23258/suite_balcon_gallery~~5bf4e41abc622.jpg",
+        "https://h-img3.cloudbeds.com/uploads/23258/suite_bao_gallery~~5bf4e44be410a.jpg",
+        "https://h-img3.cloudbeds.com/uploads/23258/img_1771_gallery~~5bae928063b90.jpg",
+        "https://h-img3.cloudbeds.com/uploads/23258/suite_sala2_gallery~~5ca6bb353d11b.jpg",
+        "https://h-img1.cloudbeds.com/uploads/23258/suite_sala_gallery~~5ca6bb5379f21.jpg"
+      ]
     }
   ],
   "Usuarios": [
@@ -78,5 +120,6 @@
       "id": "d562",
       "email": "fvargas20fwd@gmail.com"
     }
-  ]
+  ],
+  "AdminReservas": []
 }

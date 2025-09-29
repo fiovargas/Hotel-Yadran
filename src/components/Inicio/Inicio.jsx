@@ -1,5 +1,4 @@
 import React from 'react'
-/* import ServicesReservas from '../../services/ServicesReservas' */
 import { toast } from 'react-toastify'
 import "./Inicio.css";
 import inicioImg from "../../assets/hotel.jpg";

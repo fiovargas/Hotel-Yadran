@@ -46,7 +46,7 @@ function Header() {
     <div>
         <header className="header">
         
-            <div className="container">
+            <div className="container-header">
                 <img className="Logo" src={headerImg} alt="Hotel Yadran" onClick={() => handleNavigate("/")}/>
 
                 {/* Navegación escritorio */}

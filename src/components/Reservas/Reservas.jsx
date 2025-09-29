@@ -115,7 +115,7 @@ const BookingCalendar = () => {
   return (
     <div>
       <div>
-        <div className="container">
+        <div className="container-g">
           {/* Barra superior */}
           <div className="booking-bar-container">
             <div className="booking-bar">

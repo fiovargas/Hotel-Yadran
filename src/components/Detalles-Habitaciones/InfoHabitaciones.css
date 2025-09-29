@@ -1,0 +1,113 @@
+/* Contenedor general */
+.carrusel-container {
+  width: 95%;
+  max-width: 1200px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+/* Bloque de cada habitación: carrusel + info */
+.habitacion-carrusel {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+/* Carrusel (izquierda) */
+.habitacion-carrusel .carousel {
+  flex: 1;
+}
+
+/* Imagenes del carrusel */
+.carrusel-img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Info de la habitación (derecha) */
+.habitacion-info {
+  flex: 1;
+  text-align: left;
+}
+
+.habitacion-info h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.habitacion-info p {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.habitacion-info .servicios {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+/* Botón reservar */
+.btnContenedor {
+  margin-top: 10px;
+}
+
+.btnContenedor .btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btnContenedor .btn:hover {
+  background-color: #0056b3;
+}
+
+/* ------------------------- */
+/* 🔹 RESPONSIVE STYLES */
+/* ------------------------- */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .habitacion-carrusel {
+    flex-direction: column;
+  }
+
+  .carrusel-img {
+    height: 350px;
+  }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+  .carrusel-img {
+    height: 220px;
+  }
+
+  .habitacion-info h2 {
+    font-size: 1.4rem;
+  }
+
+  .habitacion-info p,
+  .habitacion-info .servicios {
+    font-size: 0.9rem;
+  }
+
+  .btnContenedor .btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+}

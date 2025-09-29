@@ -1,0 +1,229 @@
+.adminLayout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ========== SIDEBAR ========== */
+.menuLateral {
+  width: 240px;
+  background: linear-gradient(180deg, #004e92, #000428);
+  color: white;
+  padding: 2rem 1rem;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0; 
+  z-index: 1000;
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: none;
+}
+
+.menuLateral.open {
+  transform: translateX(0);
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.25);
+}
+
+.menuLateral h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.menuLateral ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menuLateral ul li {
+  padding: 0.8rem 1rem;
+  margin: 0.5rem 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.menuLateral ul li:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.btnLogout {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  background: #ff4d4d;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btnLogout:hover {
+  background: #e63939;
+}
+
+/* ========== HAMBURGER ========== */
+.hamburger {
+  display: none; /* oculto por defecto */
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1100;
+    background: #004e92;
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .hamburger:hover {
+    background: #003366;
+  }
+
+  /* Sidebar inicialmente oculto */
+  .menuLateral {
+    transform: translateX(-260px);
+    left: 0;
+  }
+
+  .menuLateral.open {
+    transform: translateX(0);
+  }
+
+  /* Contenido sin margen lateral */
+  .adminLayout > *:not(.menuLateral) {
+    margin-left: 0 !important;
+    padding: 4rem 1rem 2rem 1rem;
+  }
+}
+
+/* ========== MAIN CONTENT ========== */
+.adminLayout > *:not(.menuLateral) {
+  margin-left: 260px;
+  padding: 2rem;
+  flex: 1;
+  transition: margin-left 0.3s;
+}
+
+/* ========== FORMS ========== */
+.reservas-H {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  max-width: 800px;
+  margin-top: 1.5rem;
+}
+
+.reservas-H label {
+  font-weight: 600;
+}
+
+.reservas-H input,
+.reservas-H select {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  width: 100%;
+}
+
+.btn {
+  grid-column: span 2;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  background: #004e92;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #003366;
+}
+
+/* ========== TABLE ========== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+  background: #004e92;
+  color: white;
+}
+
+thead th {
+  padding: 1rem;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+tbody tr {
+  border-bottom: 1px solid #ddd;
+  transition: background 0.2s;
+}
+
+tbody tr:hover {
+  background: #f3f6fb;
+}
+
+tbody td {
+  padding: 0.9rem;
+  font-size: 0.9rem;
+}
+
+/* ========== RESPONSIVE TABLE ========== */
+@media (max-width: 768px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody tr {
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+    padding: 1rem;
+    background: white;
+  }
+
+  tbody td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  tbody td:last-child {
+    border-bottom: none;
+  }
+
+  tbody td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #444;
+  }
+}

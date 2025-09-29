@@ -7,6 +7,7 @@ import ReservasHabit from '../pages/ReservasHabit';
 import InfoReserva from '../pages/InfoReserva';
 import Pago from '../pages/Pago';
 import InfoDelHotel from '../components/InfoHotel/InfoDelHotel';
+import AdminR from '../pages/AdminR';
 
 function Routing() {
   return (
@@ -20,6 +21,7 @@ function Routing() {
             <Route path="/InfoReserva" element={<InfoReserva/>}/>
             <Route path="/Pago" element={<Pago/>}/>
             <Route path="/InfoDelHotel" element={<InfoDelHotel/>}/>
+            <Route path="/AdminReservas" element={<AdminR/>}/>
         </Routes>
       </Router>
     </div>
