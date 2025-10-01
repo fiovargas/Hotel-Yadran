@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import Carousel from "react-bootstrap/Carousel";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./Reservas.css"
 
 function Reservas() {
@@ -203,15 +201,6 @@ const BookingCalendar = () => {
           {habitacion && (
             <div className="habitacion-resumen">
               <h2>{habitacion.nombre}</h2>
-          {habitacion.imagenes && (
-            <Carousel>
-              {habitacion.imagenes.map((img, idx) => (
-                <Carousel.Item key={idx}>
-                  <img className="d-block w-100" src={img} alt={`Imagen ${idx + 1}`} />
-                </Carousel.Item>
-              ))}
-            </Carousel>
-          )}
             </div>
           )}
           {/* Barra superior */}
@@ -251,7 +240,7 @@ const BookingCalendar = () => {
                 <input type="text" placeholder="Añadir código" value={promoCode} onChange={(e) => setPromoCode(e.target.value)}/>
               </div>
 
-                <button className="search-button" onClick={(handleConfirmar)}> Confirmar reserva </button>
+                <button className="search-button" onClick={(handleConfirmar)}> Reservar </button>
               </div>
 
                 {/* Calendario */}

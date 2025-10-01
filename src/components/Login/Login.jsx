@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Políticas() {
+function Login() {
   return (
     <div>
-      
+      Login
     </div>
   )
 }
 
-export default Políticas
+export default Login

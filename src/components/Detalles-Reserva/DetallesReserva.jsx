@@ -21,7 +21,7 @@ function DetallesReserva() {
     return (
       <div className="resumen-container">
         <h2>No hay información de la reserva</h2>
-        <button onClick={() => navigate("/")}>Volver al inicio</button>
+        <button onClick={() => navigate("/ReservasHabit")}>Volver a reservar</button>
       </div>
     );
   };
@@ -95,7 +95,7 @@ function DetallesReserva() {
       {/* Acciones */}
       <div className="resumen-actions">
         <button onClick={() => navigate(-1)}>← Editar</button>
-        <button onClick={() => navigate("/pago")}>Confirmar y pagar</button>
+        <button onClick={() => navigate("/InfoHuesp")}>Siguiente</button>
       </div>
     </div>
   );

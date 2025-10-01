@@ -215,7 +215,7 @@ function InfoHuésped() {
 
             </div>
             <div className='btn-container'>
-              <button className="btn-continuar" onClick={cargarDatos}>Continuar</button>
+              <button className="btn-continuar" onClick={cargarDatos}>Continuar y pagar</button>
             </div>
         </div>
           

@@ -3,7 +3,7 @@ export default { getReservas, postReserva, patchReserva, deleteReserva }
 // GET - Obtener todas las reservas
 async function getReservas() {
   try {
-    const response = await fetch('http://localhost:3001/Reservas', {
+    const response = await fetch('http://localhost:3001/AdminReservas', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -23,7 +23,7 @@ async function getReservas() {
 // POST - Crear nueva reserva
 async function postReserva(infoReserva) {
   try {
-    const response = await fetch('http://localhost:3001/Reservas', {
+    const response = await fetch('http://localhost:3001/AdminReservas', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -44,7 +44,7 @@ async function postReserva(infoReserva) {
 // PATCH - Editar una reservas por id
 async function patchReserva(id, nuevaReserva) {
   try {
-    const response = await fetch(`http://localhost:3001/Reservas/${id}`, {
+    const response = await fetch(`http://localhost:3001/AdminReservas/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -65,7 +65,7 @@ async function patchReserva(id, nuevaReserva) {
 // DELETE - Eliminar una reserva por id
 async function deleteReserva(id) {
   try {
-    const response = await fetch(`http://localhost:3001/Reservas/${id}`, {
+    const response = await fetch(`http://localhost:3001/AdminReservas/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
