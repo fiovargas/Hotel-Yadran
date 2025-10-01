@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import ServicesHabitaciones from '../../services/ServicesHabitaciones'
 import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import SectionDivider from "../Divisiones/SectionDivider";
 import "./InfoHabitaciones.css";
 
 function InfoHabitaciones() {
@@ -55,7 +54,7 @@ function InfoHabitaciones() {
                 <p className="servicios"><strong>Servicios:</strong> {hab.servicios}</p>
 
                 <div className='btnContenedor'>
-                  <button className='btn' onClick={() => navigate("/ReservasHabit")}>Reservar ahora</button>
+                  <button className='btn' onClick={() => navigate("/ReservasHabit", { state: { habitacion: hab } })}> Añadir habitación </button>
                 </div>
             </div>
           </div>

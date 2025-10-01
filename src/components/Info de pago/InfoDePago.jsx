@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import VisaLogo from '../../assets/VisaLogo.jpg'
 import mastercardLogo from '../../assets/mastercardLogo.png'
 import americanExpressLogo from '../../assets/americanExpressLogo.png'
 import './InfoDePago.css';
 
 function InfoDePago() {
+
+  const navigate = useNavigate();
 
   const [titular, setTitular] = useState('');
   const [numTarjeta, setNumTarjeta] = useState('');
@@ -18,7 +21,7 @@ function InfoDePago() {
       return;
     }
     alert('¡Reserva realizada con éxito!');
-    // Aquí podrías enviar los datos al backend
+    navigate("/"); 
   };
 
 
@@ -72,8 +75,10 @@ function InfoDePago() {
               He leído y acepto los términos, condiciones y Política de privacidad.
             </label>
           </div>
-
+        <div className='btnCont'>
           <button className="boton-reservar" onClick={handleReservar}> Reservar Ahora </button>
+          <button className='rInicio' onClick={() => navigate("/")}>Volver al inicio</button>
+        </div>  
         </div>
       </div>
     </div>

@@ -95,7 +95,17 @@
 }
 
 /* Botón */
-.boton-reservar {
+
+.btnCont{
+  display: flex;
+  justify-content: space-between; /* uno a la izquierda, otro a la derecha */
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.boton-reservar, .rInicio {
+  flex: 1 ;
+  margin-right: 10px ;
   padding: 12px;
   font-size: 25px;
   background-color: #007BFF;
@@ -108,6 +118,10 @@
 }
 
 .boton-reservar:hover {
+  background-color: #0056b3;
+}
+
+.rInicio:hover {
   background-color: #0056b3;
 }
 

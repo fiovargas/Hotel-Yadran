@@ -16,23 +16,25 @@
 .booking-bar {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   background: #f4f6fb;
-  padding: 16px 50px;
+  padding: 17px 50px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  flex-wrap: wrap;
 }
 
 .booking-item {
   display: flex;
+  font-size: 22px;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   background: white;
-  padding: 12px 16px;
+  padding: 12px 18px;
   border-radius: 10px;
   border: 1px solid #d3d3d3;
   cursor: pointer;
-  min-width: 150px;
+  min-width: 180px;
   transition: 0.2s;
 }
 
@@ -48,11 +50,12 @@
 
 .booking-item select,
 .booking-item input {
+  width: 100%;
   border: none;
   outline: none;
   background: transparent;
   font-size: 16px;
-  padding: 4px 10px;
+  padding: 6px 10px;
 }
 
 .arrow {
@@ -63,8 +66,8 @@
 .search-button {
   background: #0077ff;
   color: white;
-  padding: 12px 24px;
-  font-size: 16px;
+  padding: 14px 28px;
+  font-size: 22px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -198,6 +201,11 @@
 .price.highlight-price {
   color: #e67e22;
   font-weight: 600;
+}
+.max-guests-text {
+  font-size: 14px;
+  color: #555;
+  margin-top: 4px;
 }
 
 /* --- Responsive --- */
