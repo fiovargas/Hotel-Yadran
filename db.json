@@ -1,4 +1,11 @@
 {
+    "UsuariosAdmin": [
+    {
+      "id": "f460",
+      "nombre": "fio",
+      "password": "123456789"
+    }
+   ],
   "habitaciones": [
     {
       "id": "1",
