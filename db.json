@@ -1,11 +1,11 @@
 {
-    "UsuariosAdmin": [
+  "UsuariosAdmin": [
     {
       "id": "f460",
       "nombre": "fio",
       "password": "123456789"
     }
-   ],
+  ],
   "habitaciones": [
     {
       "id": "1",
@@ -345,7 +345,7 @@
       "checkOut": "2025-10-25",
       "habitacion": "Ocean View Double",
       "huesped": "1",
-      "estado": "rechazada"
+      "estado": "aceptada"
     },
     {
       "id": "a14b",
@@ -478,23 +478,33 @@
       },
       "horaLlegada": "00:00",
       "comentarios": ""
+    },
+    {
+      "id": "c523",
+      "nombre": "Nora Figueroa",
+      "email": "Nora123@gmail.com",
+      "checkIn": "2025-10-03",
+      "checkOut": "2025-10-09",
+      "habitacion": "Standard Eco",
+      "huesped": "2",
+      "estado": "pendiente"
     }
   ],
   "descuentos": [
     {
-      "id": 1,
+      "id": "1",
       "codigo": "DESC10",
       "tipo": "porcentaje",
       "valor": 10
     },
     {
-      "id": 2,
+      "id": "2",
       "codigo": "DESC50",
       "tipo": "fijo",
       "valor": 50
     },
     {
-      "id": 3,
+      "id": "3",
       "codigo": "WELCOME5",
       "tipo": "porcentaje",
       "valor": 5

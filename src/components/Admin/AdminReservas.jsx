@@ -38,6 +38,8 @@ useEffect(() => {
     let reservasBackend = [];
     try {
       reservasBackend = await ServicesAdminReservas.getReservas();
+      console.log(reservasBackend);
+      
     } catch (error) {
       toast.error("Error al cargar reservas ❌");
       console.error(error);
@@ -73,6 +75,8 @@ useEffect(() => {
     try {
       const data = await ServicesAdminReservas.getReservas();
       setReservas(data);
+      console.log(reservas);
+      
     } catch (error) {
       toast.error("Error al cargar reservas ❌");
       console.error(error);
