@@ -1,7 +1,7 @@
 import React, { useEffect, useState }  from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import ServicesAdmin from '../../services/ServicesAdmin';
+import ServicesLogin from '../../services/ServicesLogin'
 import './Login.css'
 
 
@@ -37,7 +37,7 @@ function Login() {
         }
 
      try {
-      const usuarios = await ServicesAdmin.getUsers();
+      const usuarios = await ServicesLogin.getUsers();
       const usuarioEncontrado = usuarios.find(
         (user) => user.nombre === nombre && user.password === password
       );

@@ -7,6 +7,7 @@ import './AdminReservas.css'
 
 function AdminReservas() {
 
+  const navigate = useNavigate();
   const location = useLocation();
   const reserva = location.state;
 
@@ -24,6 +25,12 @@ function AdminReservas() {
     { nombre: "Standard Family", capacidad: 4 },
     { nombre: "Honey Moon Suite", capacidad: 2 },
   ];
+
+    // 🔹 Cerrar sesión
+  const handleLogout = () => {
+    localStorage.removeItem("usuario"); // borra la sesión
+    navigate("/login", { replace: true }); // 👈 reemplaza historial y manda a login
+  };
 
   // Traer reservas al cargar
 useEffect(() => {
@@ -70,11 +77,6 @@ useEffect(() => {
       toast.error("Error al cargar reservas ❌");
       console.error(error);
     }
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem("token"); 
-    navigate("/login");
   };
 
   const handleChange = (e) => {
