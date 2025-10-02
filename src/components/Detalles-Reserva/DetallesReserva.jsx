@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
 import "./DetallesReserva.css";
 
+// Precios diarios específicos para ciertas fechas
 const DAILY_PRICES = {
   "2025-10-01": 79, "2025-10-02": 79, "2025-10-03": 79, "2025-10-04": 109, "2025-10-05": 79,
   "2025-10-06": 79, "2025-10-07": 79, "2025-10-08": 79, "2025-10-09": 79, "2025-10-10": 79,
@@ -13,38 +14,46 @@ const DAILY_PRICES = {
 
 function DetallesReserva() {
 
+  // Obtener los datos enviados desde la página anterior
   const location = useLocation();
   const navigate = useNavigate();
-  const reserva = location.state;
+  const reserva = location.state; // contiene info de la reserva (habitacion, fechas, huéspedes, promo, etc.)
 
   const [nights, setNights] = useState([]);
   const [subtotal, setSubtotal] = useState(0);
 
+  // useEffect que se ejecuta cuando llega la reserva
   useEffect(() => {
-    if (!reserva) return;
+    if (!reserva) return;  // Si no hay reserva, salir (evita errores)
 
-    const nightsArr = [];
-    let sub = 0;
+    const nightsArr = [];  // Array temporal para guardar noches con precio
+    let sub = 0; // Acumulador de subtotal
     const start = new Date(reserva.checkIn);
     const end = new Date(reserva.checkOut);
 
+    // Iterar por cada día entre checkIn y checkOut
     for (let d = new Date(start); d < end; d.setDate(d.getDate() + 1)) {
       const yyyy = d.getFullYear();
       const mm = String(d.getMonth() + 1).padStart(2, "0");
       const dd = String(d.getDate()).padStart(2, "0");
       const dateKey = `${yyyy}-${mm}-${dd}`;
 
+      // Precio del día: si existe en DAILY_PRICES, usarlo; si no, usar precio de la habitación; si no existe, 0
       const precioDia = DAILY_PRICES[dateKey] ?? reserva.habitacion.precio ?? 0;
       sub += precioDia;
       nightsArr.push({ date: dateKey, precio: precioDia });
     }
 
+    // Aplicar descuento si hay promo code
     if (reserva.promoCode === "DESC10") sub *= 0.9;
 
+    // Guardar resultados en los estados
     setNights(nightsArr);
     setSubtotal(sub);
-  }, [reserva]);
 
+  }, [reserva]); // Se ejecuta cada vez que cambia "reserva"
+
+  // Si no hay reserva, mostrar mensaje y botón para volver
   if (!reserva) {
     return (
       <div className="resumen-container">
@@ -54,6 +63,7 @@ function DetallesReserva() {
     );
   }
 
+  // Calcular impuestos, total y depósito
   const impuestos = subtotal * 0.13;
   const total = subtotal + impuestos;
   const deposito = total * 0.3;
