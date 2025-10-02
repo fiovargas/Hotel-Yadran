@@ -191,9 +191,306 @@
       },
       "horaLlegada": "00:30",
       "comentarios": ""
+    },
+    {
+      "id": "b10f",
+      "reservaOtraPersona": null,
+      "huesped": {
+        "nombre": "fio",
+        "apellido": "vargas",
+        "email": "fiovargasp31@gmail.com",
+        "numero": "+50613456456"
+      },
+      "horaLlegada": "00:30",
+      "comentarios": ""
+    },
+    {
+      "id": "389a",
+      "reservaOtraPersona": null,
+      "huesped": {
+        "nombre": "fio",
+        "apellido": "vargas",
+        "email": "fiovargasp31@gmail.com",
+        "numero": "+5061234567890"
+      },
+      "horaLlegada": "06:00",
+      "comentarios": ""
+    },
+    {
+      "id": "15f6",
+      "habitacion": {
+        "id": "1",
+        "nombre": "Ocean View Eco",
+        "descripcion": "Capacidad de 2 a 4 personas, cuenta con 2 Camas Matrimoniales, espectacular Vista al Mar y al Golfo de Nicoya.",
+        "servicios": "Aire Acondicionado, 🛜​ Wi-Fi, 📺​ 32” LED TV por cable, Baño Privado, 🚿​ Agua Caliente, Caja de Seguridad.",
+        "capacidad": "2 a 4 personas",
+        "imagen": "https://h-img1.cloudbeds.com/uploads/23258/ove_pag_y_motor_1_featured~~60903677d0bd4.jpg",
+        "otrasImg": [
+          "https://h-img3.cloudbeds.com/uploads/23258/ove_pag_y_motor_1_featured~~60903677d0bd4.jpg",
+          "https://h-img3.cloudbeds.com/uploads/23258/ocean_view_economic_3_gallery~~5badb92606863.jpg"
+        ]
+      },
+      "checkIn": "2025-10-08",
+      "checkOut": "2025-10-11",
+      "guests": 3,
+      "nights": [
+        {
+          "date": "2025-10-07",
+          "precio": 79
+        },
+        {
+          "date": "2025-10-08",
+          "precio": 79
+        },
+        {
+          "date": "2025-10-09",
+          "precio": 79
+        }
+      ],
+      "subtotal": 237,
+      "impuestos": 30.810000000000002,
+      "total": 267.81,
+      "deposito": 80.343,
+      "promoCode": "",
+      "reservaOtraPersona": null,
+      "huesped": {
+        "nombre": "fio",
+        "apellido": "vargas",
+        "email": "fiovargasp31@gmail.com",
+        "numero": "+50670936863"
+      },
+      "horaLlegada": "06:30",
+      "comentarios": ""
+    },
+    {
+      "id": "3330",
+      "habitacion": {
+        "id": "1",
+        "nombre": "Ocean View Eco",
+        "descripcion": "Capacidad de 2 a 4 personas, cuenta con 2 Camas Matrimoniales, espectacular Vista al Mar y al Golfo de Nicoya.",
+        "servicios": "Aire Acondicionado, 🛜​ Wi-Fi, 📺​ 32” LED TV por cable, Baño Privado, 🚿​ Agua Caliente, Caja de Seguridad.",
+        "capacidad": "2 a 4 personas",
+        "imagen": "https://h-img1.cloudbeds.com/uploads/23258/ove_pag_y_motor_1_featured~~60903677d0bd4.jpg",
+        "otrasImg": [
+          "https://h-img3.cloudbeds.com/uploads/23258/ove_pag_y_motor_1_featured~~60903677d0bd4.jpg",
+          "https://h-img3.cloudbeds.com/uploads/23258/ocean_view_economic_3_gallery~~5badb92606863.jpg"
+        ]
+      },
+      "checkIn": "2025-10-01",
+      "checkOut": "2025-10-09",
+      "guests": 3,
+      "nights": [
+        {
+          "date": "2025-09-30",
+          "precio": 0
+        },
+        {
+          "date": "2025-10-01",
+          "precio": 79
+        },
+        {
+          "date": "2025-10-02",
+          "precio": 79
+        },
+        {
+          "date": "2025-10-03",
+          "precio": 79
+        },
+        {
+          "date": "2025-10-04",
+          "precio": 109
+        },
+        {
+          "date": "2025-10-05",
+          "precio": 79
+        },
+        {
+          "date": "2025-10-06",
+          "precio": 79
+        },
+        {
+          "date": "2025-10-07",
+          "precio": 79
+        }
+      ],
+      "subtotal": 583,
+      "impuestos": 75.79,
+      "total": 658.79,
+      "deposito": 197.63699999999997,
+      "promoCode": "",
+      "reservaOtraPersona": null,
+      "huesped": {
+        "nombre": "Nora ",
+        "apellido": "figueroa",
+        "email": "nora123@gmail.com",
+        "numero": "+50670936863"
+      },
+      "horaLlegada": "06:00",
+      "comentarios": ""
     }
   ],
-  "AdminReservas": [
-    
+  "Reservas": [
+    {
+      "id": "4d7f",
+      "nombre": "fio",
+      "email": "fvargas20fwd@gmail.com",
+      "checkIn": "2025-10-11",
+      "checkOut": "2025-10-25",
+      "habitacion": "Ocean View Double",
+      "huesped": "1",
+      "estado": "rechazada"
+    },
+    {
+      "id": "a14b",
+      "nombre": "Carlos",
+      "email": "carlos@gmail.com",
+      "checkIn": "2025-10-04",
+      "checkOut": "2025-10-11",
+      "habitacion": "Ocean View Eco",
+      "huesped": "3",
+      "estado": "aceptada"
+    },
+    {
+      "id": "74bc",
+      "nombre": "fio",
+      "email": "fvargas20fwd@gmail.com",
+      "checkIn": "2025-10-03",
+      "checkOut": "2025-10-10",
+      "habitacion": "Standard Eco",
+      "huesped": "2",
+      "estado": "aceptada"
+    },
+    {
+      "id": "14c9",
+      "habitacion": {
+        "id": "1",
+        "nombre": "Ocean View Eco",
+        "descripcion": "Capacidad de 2 a 4 personas, cuenta con 2 Camas Matrimoniales, espectacular Vista al Mar y al Golfo de Nicoya.",
+        "servicios": "Aire Acondicionado, 🛜​ Wi-Fi, 📺​ 32” LED TV por cable, Baño Privado, 🚿​ Agua Caliente, Caja de Seguridad.",
+        "capacidad": "2 a 4 personas",
+        "imagen": "https://h-img1.cloudbeds.com/uploads/23258/ove_pag_y_motor_1_featured~~60903677d0bd4.jpg",
+        "otrasImg": [
+          "https://h-img3.cloudbeds.com/uploads/23258/ove_pag_y_motor_1_featured~~60903677d0bd4.jpg",
+          "https://h-img3.cloudbeds.com/uploads/23258/ocean_view_economic_3_gallery~~5badb92606863.jpg"
+        ]
+      },
+      "checkIn": "2025-10-01",
+      "checkOut": "2025-10-09",
+      "guests": 3,
+      "nights": [
+        {
+          "date": "2025-09-30",
+          "precio": 0
+        },
+        {
+          "date": "2025-10-01",
+          "precio": 79
+        },
+        {
+          "date": "2025-10-02",
+          "precio": 79
+        },
+        {
+          "date": "2025-10-03",
+          "precio": 79
+        },
+        {
+          "date": "2025-10-04",
+          "precio": 109
+        },
+        {
+          "date": "2025-10-05",
+          "precio": 79
+        },
+        {
+          "date": "2025-10-06",
+          "precio": 79
+        },
+        {
+          "date": "2025-10-07",
+          "precio": 79
+        }
+      ],
+      "subtotal": 583,
+      "impuestos": 75.79,
+      "total": 658.79,
+      "deposito": 197.63699999999997,
+      "promoCode": "",
+      "reservaOtraPersona": null,
+      "huesped": {
+        "nombre": "fio",
+        "apellido": "vargas",
+        "email": "fiovargasp31@gmail.com",
+        "numero": "+5061234565"
+      },
+      "horaLlegada": "06:00",
+      "comentarios": ""
+    },
+    {
+      "id": "e72b",
+      "habitacion": {
+        "id": "1",
+        "nombre": "Ocean View Eco",
+        "descripcion": "Capacidad de 2 a 4 personas, cuenta con 2 Camas Matrimoniales, espectacular Vista al Mar y al Golfo de Nicoya.",
+        "servicios": "Aire Acondicionado, 🛜​ Wi-Fi, 📺​ 32” LED TV por cable, Baño Privado, 🚿​ Agua Caliente, Caja de Seguridad.",
+        "capacidad": "2 a 4 personas",
+        "imagen": "https://h-img1.cloudbeds.com/uploads/23258/ove_pag_y_motor_1_featured~~60903677d0bd4.jpg",
+        "otrasImg": [
+          "https://h-img3.cloudbeds.com/uploads/23258/ove_pag_y_motor_1_featured~~60903677d0bd4.jpg",
+          "https://h-img3.cloudbeds.com/uploads/23258/ocean_view_economic_3_gallery~~5badb92606863.jpg"
+        ]
+      },
+      "checkIn": "2025-10-01",
+      "checkOut": "2025-10-04",
+      "guests": 3,
+      "nights": [
+        {
+          "date": "2025-09-30",
+          "precio": 0
+        },
+        {
+          "date": "2025-10-01",
+          "precio": 79
+        },
+        {
+          "date": "2025-10-02",
+          "precio": 79
+        }
+      ],
+      "subtotal": 142.20000000000002,
+      "impuestos": 18.486000000000004,
+      "total": 160.68600000000004,
+      "deposito": 48.20580000000001,
+      "promoCode": "DESC10",
+      "reservaOtraPersona": null,
+      "huesped": {
+        "nombre": "fio",
+        "apellido": "vargas",
+        "email": "nora123@gmail.com",
+        "numero": "+5062345678"
+      },
+      "horaLlegada": "00:00",
+      "comentarios": ""
+    }
+  ],
+  "descuentos": [
+    {
+      "id": 1,
+      "codigo": "DESC10",
+      "tipo": "porcentaje",
+      "valor": 10
+    },
+    {
+      "id": 2,
+      "codigo": "DESC50",
+      "tipo": "fijo",
+      "valor": 50
+    },
+    {
+      "id": 3,
+      "codigo": "WELCOME5",
+      "tipo": "porcentaje",
+      "valor": 5
+    }
   ]
 }

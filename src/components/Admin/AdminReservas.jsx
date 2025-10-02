@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import ServicesAdminReservas from '../../services/ServicesReservas'
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import headerImg from '../../assets/Logohotel.png'
 import { toast } from 'react-toastify'
 import './AdminReservas.css'
 
 function AdminReservas() {
 
-  const navigate = useNavigate();
+  const location = useLocation();
+  const reserva = location.state;
 
   const [reservas, setReservas] = useState([]);
   const [form, setForm] = useState({ nombre: "", email: "", checkIn: "", checkOut: "", habitacion: "", huesped: "" });
@@ -25,20 +26,49 @@ function AdminReservas() {
   ];
 
   // Traer reservas al cargar
-  useEffect(() => {
-    cargarReservas();
+useEffect(() => {
+  const cargar = async () => {
+    let reservasBackend = [];
+    try {
+      reservasBackend = await ServicesAdminReservas.getReservas();
+    } catch (error) {
+      toast.error("Error al cargar reservas ❌");
+      console.error(error);
+    }
 
-  // Polling cada 3 segundos para actualizar reservas en tiempo real
-  const intervalo = setInterval(cargarReservas, 3000);
-    return () => clearInterval(intervalo);
-  }, []);
+    const datosLocal = localStorage.getItem("reservaCompleta");
+    const reservaLocal = datosLocal ? JSON.parse(datosLocal) : null;
+
+    let nuevasReservas = [...reservasBackend];
+
+    if (reservaLocal) {
+      const nuevaReserva = {
+        id: Date.now(),
+        nombre: reservaLocal.huesped?.nombre || reservaLocal.nombre,
+        email: reservaLocal.huesped?.email || reservaLocal.email,
+        checkIn: reservaLocal.checkIn,
+        checkOut: reservaLocal.checkOut,
+        habitacion: reservaLocal.habitacion?.nombre || reservaLocal.habitacion,
+        huesped: reservaLocal.huesped?.numero || reservaLocal.huesped,
+        estado: "pendiente"
+      };
+      nuevasReservas.push(nuevaReserva);
+      localStorage.removeItem("reservaCompleta");
+    }
+
+    setReservas(nuevasReservas);
+  }
+
+  cargar();
+}, []);
 
   const cargarReservas = async () => {
     try {
       const data = await ServicesAdminReservas.getReservas();
       setReservas(data);
     } catch (error) {
-      console.error("Error cargando reservas:", error);
+      toast.error("Error al cargar reservas ❌");
+      console.error(error);
     }
   };
 
@@ -62,15 +92,15 @@ function AdminReservas() {
 };
 
 // Validar que el formulario tenga datos correctos
-const isFormValid = (data) => {
-  if (!data) return false;
-  if (!data.nombre || data.nombre.trim().length < 2) return false;
-  if (!data.email || !data.email.includes("@")) return false;
-  if (!data.checkIn || !data.checkOut) return false;
-  if (!data.habitacion) return false;
-  if (!data.huesped) return false;
-  return true;
-};
+  const isFormValid = (data) => {
+    if (!data) return false;
+    return data.nombre?.trim().length >= 2 &&
+           data.email?.includes("@") &&
+           data.checkIn &&
+           data.checkOut &&
+           data.habitacion &&
+           data.huesped;
+  };
 
   // Agregar nueva reserva
 const handleAdd = async () => {
@@ -112,11 +142,11 @@ const handleAdd = async () => {
       estado: "pendiente",
     };
 
-        await ServicesAdminReservas.postReserva(nueva);
+     const nuevaCreada = await ServicesAdminReservas.postReserva(nueva);
+    setReservas(prev => [...prev, nuevaCreada]);
 
     // Limpiar formulario y recargar reservas
     setForm({ nombre: "", email: "", checkIn: "", checkOut: "", habitacion: "", huesped: "" });
-    cargarReservas();
     setSection("pendientes");
     toast.success("Reserva agregada correctamente ✅");
   } catch (error) {
@@ -125,17 +155,6 @@ const handleAdd = async () => {
   }
 };
 
-  // Eliminar reserva
-  const handleDelete = async (id) => {
-    try {
-      await ServicesAdminReservas.deleteReserva(id);
-      cargarReservas();
-      alert("Reserva eliminada ✅");
-    } catch (error) {
-      console.error("Error eliminando reserva:", error);
-    }
-  };
-
   const handleEdit = (reserva) => {
     setEditReserva(reserva);
     setSection("edit"); 
@@ -143,6 +162,11 @@ const handleAdd = async () => {
 
 const handleUpdate = async () => {
   // --- Validaciones ---
+    if (!isFormValid(editReserva)) {
+      toast.error("Completa todos los campos correctamente ❌");
+      return;
+    }
+
   if (!editReserva.nombre || editReserva.nombre.trim().length < 2) {
     toast.error("El nombre del huésped debe tener mínimo 2 caracteres");
     return;
@@ -192,37 +216,102 @@ const handleUpdate = async () => {
     return !reservas.some(r =>
       r.estado === "aceptada" &&
       r.habitacion === habitacion &&
-      !(
-        new Date(checkOut) <= new Date(r.checkIn) ||
-        new Date(checkIn) >= new Date(r.checkOut)
-      )
+      !(new Date(checkOut) <= new Date(r.checkIn) || new Date(checkIn) >= new Date(r.checkOut))
     );
   };
 
-  // Aceptar reserva (si hay disponibilidad)
-  const handleAceptar = async (id) => {
-    try {
-      const reserva = reservas.find(r => r.id === id);
-      if (!estaDisponible(reserva.habitacion, reserva.checkIn, reserva.checkOut)) {
-        alert("La habitación no está disponible en esas fechas.");
-        return;
-      }
-      await ServicesAdminReservas.patchReserva(id, { estado: "aceptada" });
-      cargarReservas();
-    } catch (error) {
-      console.error("Error aceptando reserva:", error);
-    }
-  };
+// Toast de confirmación antes de aceptar
+const confirmAceptar = (id) => {
+  toast.info(
+    ({ closeToast }) => (
+      <div className="toast-confirm">
+        <p>¿Seguro que quieres aceptar la reserva?</p>
+        <div className="toast-confirm-buttons">
+          <button
+            className="btn"
+            style={{ backgroundColor: "#28a745" }} // verde
+            onClick={async () => {
+              try {
+                const reserva = reservas.find(r => r.id === id);
+                if (!estaDisponible(reserva.habitacion, reserva.checkIn, reserva.checkOut)) {
+                  toast.error("La habitación no está disponible en esas fechas.");
+                  return;
+                }
+                await ServicesAdminReservas.patchReserva(id, { estado: "aceptada" });
+                toast.success("Reserva aceptada correctamente ✅");
+                cargarReservas();
+              } catch (error) {
+                toast.error("Error al aceptar la reserva ❌");
+                console.error(error);
+              }
+              closeToast();
+            }}
+          >Sí</button>
+          <button className="btn" style={{ backgroundColor: "#6c757d" }} onClick={closeToast}>No</button>
+        </div>
+      </div>
+    ),
+    { autoClose: false, closeOnClick: false }
+  );
+};
 
-  // Rechazar reserva
-  const handleRechazar = async (id) => {
-    try {
-      await ServicesAdminReservas.patchReserva(id, { estado: "rechazada" });
-      cargarReservas();
-    } catch (error) {
-      console.error("Error rechazando reserva:", error);
-    }
-  };
+// Toast de confirmación antes de rechazar
+const confirmRechazar = (id) => {
+  toast.info(
+    ({ closeToast }) => (
+      <div className="toast-confirm">
+        <p>¿Seguro que quieres rechazar la reserva?</p>
+        <div className="toast-confirm-buttons">
+          <button
+            className="btn"
+            style={{ backgroundColor: "#d9534f" }} // rojo
+            onClick={async () => {
+              try {
+                await ServicesAdminReservas.patchReserva(id, { estado: "rechazada" });
+                toast.info("Reserva rechazada ❌");
+                cargarReservas();
+              } catch (error) {
+                toast.error("Error al rechazar reserva ❌");
+                console.error(error);
+              }
+              closeToast();
+            }}
+          >Sí</button>
+          <button className="btn" style={{ backgroundColor: "#6c757d" }} onClick={closeToast}>No</button>
+        </div>
+      </div>
+    ),
+    { autoClose: false, closeOnClick: false }
+  );
+};
+
+  // Toast de confirmación antes de eliminar
+const confirmDelete = (id) => {
+  toast.info(
+    ({ closeToast }) => (
+      <div className="toast-confirm">
+        <p>¿Seguro que quieres eliminar la reserva?</p>
+        <div className="toast-confirm-buttons">
+          <button
+            className="toast-btn toast-btn-yes"
+            onClick={async () => {
+              try {
+                await ServicesAdminReservas.deleteReserva(id);
+                cargarReservas();
+                toast.success("Reserva eliminada ✅");
+              } catch (error) {
+                toast.error("Ocurrió un error al eliminar la reserva ❌");
+              }
+              closeToast(); // cerrar el toast
+            }}
+          >Sí</button>
+          <button className="toast-btn toast-btn-no" onClick={closeToast}>No</button>
+        </div>
+      </div>
+    ),
+    { autoClose: false, closeOnClick: false }
+  );
+};
 
   const today = new Date().toISOString().split("T")[0];
 
@@ -306,8 +395,9 @@ const handleUpdate = async () => {
                       <td>{reserva.habitacion}</td>
                       <td>{reserva.huesped}</td>
                       <td>
-                        <button className="btn" onClick={() => handleAceptar(reserva.id)}>Aceptar</button>
-                        <button className="btn" onClick={() => handleRechazar(reserva.id)}>Rechazar</button>
+                        <button className="btn" onClick={() => confirmAceptar(reserva.id)}>Aceptar</button>
+                        <button className="btn" onClick={() => confirmRechazar(reserva.id)}>Rechazar</button>
+
                       </td>
                     </tr>
                   ))}
@@ -341,7 +431,8 @@ const handleUpdate = async () => {
                       <td>{reserva.estado}</td>
                       <td>
                         <button className="btn" onClick={() => handleEdit(reserva)}>Editar</button>
-                        <button className="btn" onClick={() => handleDelete(reserva.id)}>Eliminar</button>
+                        <button className="btn" onClick={() => confirmDelete(reserva.id)}>Eliminar</button>
+
                       </td>
                     </tr>
                   ))}

@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
+import ServicesAdminReservas from '../../services/ServicesReservas';
 import VisaLogo from '../../assets/VisaLogo.jpg'
 import mastercardLogo from '../../assets/mastercardLogo.png'
 import americanExpressLogo from '../../assets/americanExpressLogo.png'
+import { toast } from 'react-toastify'
 import './InfoDePago.css';
 
 function InfoDePago() {
 
   const navigate = useNavigate();
+
+  const [total, setTotal] = useState(0);
 
   const [titular, setTitular] = useState('');
   const [numTarjeta, setNumTarjeta] = useState('');
@@ -15,15 +19,36 @@ function InfoDePago() {
   const [anio, setAnio] = useState('');
   const [aceptaTerminos, setAceptaTerminos] = useState(false);
 
-  const handleReservar = () => {
+  const [reservaCompleta, setReservaCompleta] = useState(null);
+
+    useEffect(() => {
+      const datos = localStorage.getItem("reservaCompleta");
+      if (datos) {
+        setReservaCompleta(JSON.parse(datos));
+      }
+    }, []);
+
+    useEffect(() => {
+    if (reservaCompleta?.nights) {
+      const suma = reservaCompleta.nights.reduce((acc, n) => acc + n.precio, 0);
+      setTotal(suma);
+    }
+  }, [reservaCompleta]);
+
+  const handleReservar = async () => {
     if (!titular || !numTarjeta || !mes || !anio || !aceptaTerminos) {
-      alert('Por favor completa todos los campos y acepta los términos.');
+      toast.error('Por favor completa todos los campos y acepta los términos.');
       return;
     }
-    alert('¡Reserva realizada con éxito!');
-    navigate("/"); 
-  };
 
+    try {
+      await ServicesAdminReservas.postReserva(reservaCompleta);
+      toast.success('¡Reserva realizada con éxito!');
+      navigate("/");
+    } catch (error) {
+      toast.error("Error al completar la reserva");
+    }
+  };
 
   return (
     <div>

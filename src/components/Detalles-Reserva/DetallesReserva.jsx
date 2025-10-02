@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
 import "./DetallesReserva.css";
 
@@ -17,37 +17,42 @@ function DetallesReserva() {
   const navigate = useNavigate();
   const reserva = location.state;
 
-   if (!reserva) {
+  const [nights, setNights] = useState([]);
+  const [subtotal, setSubtotal] = useState(0);
+
+  useEffect(() => {
+    if (!reserva) return;
+
+    const nightsArr = [];
+    let sub = 0;
+    const start = new Date(reserva.checkIn);
+    const end = new Date(reserva.checkOut);
+
+    for (let d = new Date(start); d < end; d.setDate(d.getDate() + 1)) {
+      const yyyy = d.getFullYear();
+      const mm = String(d.getMonth() + 1).padStart(2, "0");
+      const dd = String(d.getDate()).padStart(2, "0");
+      const dateKey = `${yyyy}-${mm}-${dd}`;
+
+      const precioDia = DAILY_PRICES[dateKey] ?? reserva.habitacion.precio ?? 0;
+      sub += precioDia;
+      nightsArr.push({ date: dateKey, precio: precioDia });
+    }
+
+    if (reserva.promoCode === "DESC10") sub *= 0.9;
+
+    setNights(nightsArr);
+    setSubtotal(sub);
+  }, [reserva]);
+
+  if (!reserva) {
     return (
       <div className="resumen-container">
         <h2>No hay información de la reserva</h2>
         <button onClick={() => navigate("/ReservasHabit")}>Volver a reservar</button>
       </div>
     );
-  };
-
-   const { checkIn, checkOut, habitacion, promoCode, guests } = reserva;
-
-  // Calcular noches y subtotal según precios diarios
-  const nights = [];
-  let subtotal = 0;
-  const start = new Date(checkIn);
-  const end = new Date(checkOut);
-
-  for (let d = new Date(start); d < end; d.setDate(d.getDate() + 1)) {
-    const yyyy = d.getFullYear();
-    const mm = String(d.getMonth() + 1).padStart(2, "0");
-    const dd = String(d.getDate()).padStart(2, "0");
-    const dateKey = `${yyyy}-${mm}-${dd}`;
-
-    // precio diario del calendario, si no existe, precio base de la habitación
-    const precioDia = DAILY_PRICES[dateKey] ?? habitacion.precio ?? 0;
-    subtotal += precioDia;
-    nights.push({ date: dateKey, precio: precioDia });
   }
-
-  // Aplicar código de descuento si existe
-  if (promoCode === "DESC10") subtotal *= 0.9;
 
   const impuestos = subtotal * 0.13;
   const total = subtotal + impuestos;
@@ -78,7 +83,7 @@ function DetallesReserva() {
           {nights.map((n, idx) => (
             <tr key={idx}>
               <td>{n.date}</td>
-              <td>${(n.precio ?? 0).toFixed(2)}</td>
+              <td>${n.precio.toFixed(2)}</td>
             </tr>
           ))}
         </tbody>
@@ -95,7 +100,7 @@ function DetallesReserva() {
       {/* Acciones */}
       <div className="resumen-actions">
         <button onClick={() => navigate(-1)}>← Editar</button>
-        <button onClick={() => navigate("/InfoHuesp")}>Siguiente</button>
+        <button onClick={() => navigate("/InfoHuesp", { state: { ...reserva, nights, subtotal, impuestos, total, deposito } })}>Siguiente</button>
       </div>
     </div>
   );

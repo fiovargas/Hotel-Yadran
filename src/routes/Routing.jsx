@@ -22,7 +22,7 @@ function Routing() {
             <Route path="/InfoReserva" element={<InfoReserva/>}/>
             <Route path="/Pago" element={<Pago/>}/>
             <Route path="/InfoDelHotel" element={<InfoDelHotel/>}/>
-            <Route path="/AdminReservas" element={<AdminR/>}/>
+            <Route path="/AdminR" element={<AdminR/>}/>
             <Route path="/Login" element={<LoginAdmin/>}/>
         </Routes>
       </Router>

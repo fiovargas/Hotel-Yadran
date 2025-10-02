@@ -94,13 +94,21 @@
 
   /* Sidebar inicialmente oculto */
   .menuLateral {
-    transform: translateX(-260px);
+    width: 240px;
+    background: linear-gradient(180deg, #004e92, #000428);
+    color: white;
+    padding: 2rem 1rem;
+    position: fixed;
+    top: 0;
+    bottom: 0;
     left: 0;
+    z-index: 100;
+    transition: transform 0.3s ease;
   }
 
-  .menuLateral.open {
-    transform: translateX(0);
-  }
+.menuLateral:not(.open) {
+  transform: translateX(-100%);
+}
 
   /* Contenido sin margen lateral */
   .adminLayout > *:not(.menuLateral) {
@@ -274,4 +282,20 @@ tbody td {
         max-width: 100%;
         padding: 20px;
     }
+}
+
+.toast-confirm {
+  padding: 10px;
+  text-align: center;
+}
+
+.toast-confirm p {
+  margin: 0 0 10px;
+  font-weight: bold;
+}
+
+.toast-confirm-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }

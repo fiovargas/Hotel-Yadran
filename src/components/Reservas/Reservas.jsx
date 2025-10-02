@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import ServicesDescuento from "../../services/ServicesDescuento";
+import { toast } from 'react-toastify'
 import "./Reservas.css"
 
 function Reservas() {
@@ -58,10 +60,18 @@ const BookingCalendar = () => {
   const { min: minGuests, max: maxGuests } = habitacion ? getGuestRange(habitacion.capacidad) : { min: 1, max: 1 };
   const [guests, setGuests] = useState(minGuests);
   const [promoCode, setPromoCode] = useState("");
+  const [descuentos, setDescuentos] = useState([]);
 
   useEffect(() => {
     setGuests(minGuests);
   }, [habitacion]);
+
+    useEffect(() => {
+      ServicesDescuento.getDescuentos()
+        .then(data => setDescuentos(data))
+        .catch(err => console.error(err));
+    }, []);
+
 
   const calcularNoches = (inicio, fin) => {
     if (!inicio || !fin) return 0;
@@ -71,30 +81,24 @@ const BookingCalendar = () => {
     return diff > 0 ? diff / (1000 * 60 * 60 * 24) : 0;
   };
 
-  const calcularTotal = () => {
-    const noches = calcularNoches(checkIn, checkOut);
-    let total = (habitacion?.precio || 0) * noches * guests;
-    if (promoCode === "DESC10") total *= 0.9;
-    return total;
-  };
-
     // Función al seleccionar un día
   const handleDayClick = (year, month, day) => {
     const date = formatDate(year, month, day);
 
- if (activeItem === "Llegada") {
-      if (checkIn === date) setCheckIn(null); // desmarcar
-      else {
-        setCheckIn(date);
-        setCheckOut(null);
-        setActiveItem("Salida");
-      }
-    } else if (activeItem === "Salida") {
+  if (activeItem === "Llegada") {
+    if (checkIn === date) setCheckIn(null); // desmarcar
+    else {
+      setCheckIn(date);
+      setCheckOut(null);
+      setActiveItem("Salida");
+    }
+  } else if (activeItem === "Salida") {
       if (checkOut === date) setCheckOut(null); // desmarcar
       else if (checkIn && date > checkIn) setCheckOut(date);
-      else alert("La fecha de salida debe ser después de la llegada");
-    }
-  };
+      else toast.error("La fecha de salida debe ser después de la llegada");
+  }
+}
+
 
   const getPrice = (year, month, day) => {
     const dateKey = formatDate(year, month, day);
@@ -156,9 +160,16 @@ const BookingCalendar = () => {
   // 🔹 Pasar datos al resumen
   const handleConfirmar = () => {
     if (!habitacion || !checkIn || !checkOut) {
-      alert("Completa la habitación y las fechas antes de continuar");
+      toast.error("Completa todos los datos antes de reservar");
       return;
     }
+
+      // Si hay un código de descuento ingresado, verificar que exista
+      const descuentoAplicable = descuentos.find(d => d.codigo === promoCode);
+      if (promoCode && !descuentoAplicable) {
+        toast.error("El código de descuento no es válido");
+        return;
+      }
 
     const nights = [];
     for (let time = new Date(checkIn).getTime(); time < new Date(checkOut).getTime(); time += 24*60*60*1000) {
@@ -171,26 +182,33 @@ const BookingCalendar = () => {
       nights.push({ date: dateKey, precio: precioDia });
     }
 
+    // Aplicar descuento si existe
     let subtotal = nights.reduce((acc, n) => acc + n.precio, 0);
-    if (promoCode === "DESC10") subtotal *= 0.9;
+    if (descuentoAplicable) {
+    if (descuentoAplicable.tipo === "porcentaje") subtotal *= (1 - descuentoAplicable.valor / 100);
+    else if (descuentoAplicable.tipo === "fijo") subtotal -= descuentoAplicable.valor;
+  }
+   
+
     const impuestos = subtotal * 0.13;
     const total = subtotal + impuestos;
     const deposito = total * 0.3;
 
-    navigate("/InfoReserva", {
-      state: {
+      const reservaCompleta = {
         habitacion,
         checkIn,
         checkOut,
         guests,
-        nights,     
+        nights,
         subtotal,
         impuestos,
         total,
         deposito,
-        promoCode
-      },
-    });
+        promoCode: descuentoAplicable?.codigo || null
+      };
+
+  navigate("/InfoReserva", { state: reservaCompleta });
+
   };
 
 
@@ -237,7 +255,7 @@ const BookingCalendar = () => {
 
               <div className="booking-item">
                 <span className="icon">🏷️</span>
-                <input type="text" placeholder="Añadir código" value={promoCode} onChange={(e) => setPromoCode(e.target.value)}/>
+                <input type="text" placeholder="Código descuento" value={promoCode} onChange={(e) => setPromoCode(e.target.value)}/>
               </div>
 
                 <button className="search-button" onClick={(handleConfirmar)}> Reservar </button>

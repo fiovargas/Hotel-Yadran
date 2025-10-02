@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import ServicesRegister from '../../services/ServicesRegister'
 import { toast } from 'react-toastify'
 import SectionDivider from "../Divisiones/SectionDivider";
@@ -7,7 +7,10 @@ import "./InfoHuesped.css"
 
 function InfoHuésped() {
 
-  const navegar = useNavigate()
+  const location = useLocation();
+  const navigate = useNavigate();
+  const reserva = location.state; // Viene de la pagina de reservas
+
 
   // Estados para checkbox
   const [reservaOtraPersona, setReservaOtraPersona] = useState(false)
@@ -28,85 +31,62 @@ function InfoHuésped() {
   const [pais, setPais] = useState("+506")
   const [telefono, setTelefono] = useState("")
 
-    useEffect(() => {
-    const usuario = localStorage.getItem("usuario")
-    if (usuario) {
-      navegar("/InfoHuesp", { replace: true }) // reemplaza el historial
-    }
-  }, [navegar])
+  useEffect(() => {
+    if (!reserva) navigate("/ReservasHabit");
+  }, [reserva, navigate]); 
 
-    const cargarDatos = async () => {
+    const handleContinuar = () => {
 
       // Validación de quien reserva
-    if (reservaOtraPersona && (!reservaNombre || !reservaApellido || !reservaEmail)) {
-      toast.error("Completa todos los datos de quien reserva")
-      return
-    }
-
-      // Validación del huésped
-    if (!nombre || !apellido || !email || !telefono) {
-      toast.error("Completa todos los datos del huésped")
-      return
-    }
-
-    if (nombre.length < 3) {
-      toast.error("El nombre debe tener mínimo 3 caracteres")
-      return
-    }
-
-    if (apellido.length < 2) {
-      toast.error("El apellido debe tener mínimo 2 caracteres")
-      return
-    }
-
-    if (!email.includes("@") || !email.includes(".")) {
-      toast.error("El correo debe contener '@' y '.'")
-      return
-    }
-
-    try {
-
-      const usuariosActuales = await ServicesRegister.getUsers()
-      console.log(usuariosActuales);
-      
-
-      const nuevoUsuario = {
-        reservaOtraPersona: reservaOtraPersona
-        ? { reservaNombre, reservaApellido, reservaEmail }
-        : null,
-        huesped: { nombre, apellido, email, numero: `${pais}${telefono}`},
-        horaLlegada, 
-        comentarios
+      if (reservaOtraPersona && (!reservaNombre || !reservaApellido || !reservaEmail)) {
+        toast.error("Completa todos los datos de quien reserva")
+        return
       }
 
-      console.log(nuevoUsuario);
-      
-      
-      console.log("enviando usuario");
-      
-      await ServicesRegister.postUsers(nuevoUsuario)
+        // Validación del huésped
+      if (!nombre || !apellido || !email || !telefono) {
+        toast.error("Completa todos los datos del huésped")
+        return
+      }
 
-      toast.success("Registro guardado con éxito")
+      if (nombre.length < 3) {
+        toast.error("El nombre debe tener mínimo 3 caracteres")
+        return
+      }
 
-      // Resetear estados
-      setReservaNombre("")
-      setReservaApellido("")
-      setReservaEmail("")
-      setNombre("")
-      setApellido("")
-      setPais("+506")
-      setTelefono("")
-      setReservaOtraPersona(false)
-      setHoraLlegada("")
-      setComentarios("")
+      if (apellido.length < 2) {
+        toast.error("El apellido debe tener mínimo 2 caracteres")
+        return
+      }
 
-      navegar("/Pago")
+      if (!email.includes("@") || !email.includes(".")) {
+        toast.error("El correo debe contener '@' y '.'")
+        return
+      }
 
-    } catch (error) {
-      toast.error("Error al registrar el usuario")
-      console.error("Error en registro:", error)
+  try {
+    // Preparar el objeto de reserva completa
+    const reservaCompleta = {
+      ...reserva, // datos que vienen de la página de reservas (habitacion, checkIn, checkOut, etc.)
+      reservaOtraPersona: reservaOtraPersona
+        ? { reservaNombre, reservaApellido, reservaEmail }
+        : null,
+      huesped: { nombre, apellido, email, numero: `${pais}${telefono}` },
+      horaLlegada,
+      comentarios
+    };
+        
+    localStorage.setItem("reservaCompleta", JSON.stringify(reservaCompleta));
+
+        toast.success("Reserva lista para pago")
+
+        navigate("/Pago")
+
+      } catch (error) {
+        toast.error("Error al registrar el usuario")
+        console.error("Error en registro:", error)
+      }
     }
-  }
  
   return (
     <div>
@@ -214,8 +194,9 @@ function InfoHuésped() {
               </div>
 
             </div>
+
             <div className='btn-container'>
-              <button className="btn-continuar" onClick={cargarDatos}>Continuar y pagar</button>
+              <button className="btn-continuar" onClick={handleContinuar}>Continuar y pagar</button>
             </div>
         </div>
           
